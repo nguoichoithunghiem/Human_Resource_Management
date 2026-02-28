@@ -21,7 +21,7 @@ public class LeaveController {
     private final LeaveService leaveService;
 
     // USER tạo đơn
-    @PreAuthorize("hasRole('USER')")
+@PreAuthorize("hasAnyRole('ADMIN','MANAGER','USER')")
     @PostMapping
     public LeaveResponse requestLeave(
             @Valid @RequestBody LeaveRequestDTO requestDTO
